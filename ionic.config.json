@@ -1,0 +1,7 @@
+{
+  "name": "AnimeFlix",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
