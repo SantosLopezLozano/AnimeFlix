@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "animeflix-b6cdb": {
+      "hosting": {
+        "app": [
+          "animeflix-b6cdb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "animeflix-b6cdb"
+  }
+}
