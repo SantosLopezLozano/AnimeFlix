@@ -10,7 +10,7 @@ export class ItemService {
     private storage: AngularFireStorage
   ) {}
 
-  // Sube a firebase un archivo y devuelve ña url del archivo sibido
+  // Sube a firebase un archivo y devuelve la url del archivo subido
   uploadFile(file, path: string, name: string): Promise<string> {
     const filePath = `${path}/${name}`
     const storageRef = this.storage.ref(filePath)

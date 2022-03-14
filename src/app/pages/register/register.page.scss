@@ -11,17 +11,31 @@
   background: url('../../../assets/images/login wallpaper.jpg')
 }
 
-
 #correo, #contrasena{
-  margin: 5px;
+  margin: 30px;
   background-color: rgba(0, 0, 0, 0.507);
   border-radius: 50px;
 }
 
-#links {
-  background-color: rgba(0, 0, 0, 0.507);
-  margin-top: 40vh;
+#cancelar {
+  position: absolute;
+  width: 32%;
+  height: 48px;
+  left: 10%;
+  top: 320px;
+  background: linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), rgba(205, 57, 57, 0.58);
+  border-radius: 50px;
 }
 
+#confirmar {
+  position: absolute;
+  width: 32%;
+  height: 48px;
+  left: 55%;
+  top: 320px;
+
+background: linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), rgba(205, 57, 57, 0.58);
+border-radius: 50px;
+}
 
 

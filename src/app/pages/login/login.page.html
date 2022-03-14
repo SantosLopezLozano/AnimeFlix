@@ -3,68 +3,43 @@
     <ion-buttons slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      <ion-icon name="blank"></ion-icon>
-      Login
-    </ion-title>
+    <ion-title>Login Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="content" class="ion-padding ion-text-center">
-
   <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        <ion-icon name="person-circle-outline" class="person"></ion-icon>
-      </ion-col>
-    </ion-row>
-
+    <!-- Label correo electronico -->
     <ion-row>
       <ion-col text-center id="correo">
-        <ion-label>Correo electrónico</ion-label>
+        <ion-label>email</ion-label>
         <ion-input [(ngModel)]="item.correo" clearInput type="text"></ion-input>
       </ion-col>
     </ion-row>
-
+    <!-- Label contrasena -->
     <ion-row>
       <ion-col text-center id="contrasena">
-        <ion-label>Contraseña</ion-label>
+        <ion-label>password</ion-label>
         <ion-input [(ngModel)]="item.contrasena" clearInput type="text"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <div class="botones">
-    <ion-button
-      id="register"
-      expand="block"
-      class="text capitalize"
-      color="medium"
-      shape="round"
-      href="/register">
-        Registrarse
-      </ion-button>
+  <!-- Boton registrarse -->
+  <ion-button id="register" expand="block" class="text capitalize" color="rojizo" shape="round" href="/register">
+    Register
+  </ion-button>
+  <!-- Boton login -->
+  <ion-button id="login" expand="block" class="text capitalize" color="rojizo" shape="round" (click)="login()">
+    Login
+  </ion-button>
 
-      <ion-button
-        id="login"
-        expand="block"
-        class="text capitalize"
-        color="medium"
-        shape="round"
-        (click)="login()">
-        Aceptar
-      </ion-button>
-  </div>  
-
-  
-
-  <br>
-
+  <!-- resset password -->
   <footer class="center" id="links">
     <br>
-    <a class="text" href="/reset-password">
+    <a href="/reset-password" style="color:#ffffff;">
       <ion-icon name="mail"></ion-icon>
-      Recuperar contraseña
+      recover your password
     </a>
   </footer>
 </ion-content>

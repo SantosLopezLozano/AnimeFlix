@@ -10,19 +10,42 @@
   background-size: cover;
 }
 
-
 #correo, #contrasena{
-  margin: 5px;
+  margin: 30px;
   background-color: rgba(0, 0, 0, 0.507);
   border-radius: 50px;
 }
 
-#register, #login {float: left; position: relative;
+#register {
+  position: absolute;
+  width: 32%;
+  height: 48px;
+  left: 10%;
+  top: 320px;
+  background: linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), rgba(205, 57, 57, 0.58);
+  border-radius: 50px;
+}
+
+#login {
+  position: absolute;
+  width: 32%;
+  height: 48px;
+  left: 55%;
+  top: 320px;
+
+background: linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), linear-gradient(0deg, rgba(205, 57, 57, 0.58), rgba(205, 57, 57, 0.58)), rgba(205, 57, 57, 0.58);
+border-radius: 50px;
 }
 
 #links {
-  background-color: rgba(0, 0, 0, 0.507);
-  margin-top: 40vh;
+  position: absolute;
+width: 100%;
+height: 49px;
+left: 0px;
+bottom: 0;
+
+background: #ff000052;
+border-radius: 50px 50px 0px 0px;
 }
 
 

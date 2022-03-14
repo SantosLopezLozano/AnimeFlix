@@ -3,51 +3,35 @@
     <ion-buttons slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Nuevo usuario</ion-title>
+    <ion-title>New User</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding ion-text-center">
   <ion-grid>
+    <!-- Label correo electronico -->
     <ion-row>
-      <ion-col>
-        <ion-icon name="person-add" class="person"></ion-icon>
+      <ion-col text-center id="correo">
+        <ion-label>email</ion-label>
+        <ion-input [(ngModel)]="item.correo" clearInput type="text"></ion-input>
+      </ion-col>
+    </ion-row>
+    <!-- Label contrasena -->
+    <ion-row>
+      <ion-col text-center id="contrasena">
+        <ion-label>password</ion-label>
+        <ion-input [(ngModel)]="item.contrasena" clearInput type="text"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-label>Correo electrónico</ion-label>
-        <ion-input clearInput class="text">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-label>Contraseña</ion-label>
-        <ion-input clearInput class="text" type="password">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-button
-    expand="block"
-    class="text capitalize"
-    color="success"
-    shape="round">
-    Aceptar
+  <!-- Boton registrarse -->
+  <ion-button id="cancelar" expand="block" class="text capitalize" color="rojizo" shape="round" href="/login">
+    Cancel
+  </ion-button>
+  <!-- Boton login -->
+  <ion-button id="confirmar" expand="block" class="text capitalize" color="rojizo" shape="round" (click)="login()">
+    Confirm
   </ion-button>
 
-  <ion-button
-    expand="block"
-    class="text capitalize"
-    color="danger"
-    shape="round"
-    href="/login">
-    Cancelar
-  </ion-button>
 </ion-content>
