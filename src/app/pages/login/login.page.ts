@@ -26,7 +26,8 @@ export class LoginPage implements OnInit {
       console.log("has acertado")
       this.router.navigateByUrl('/home')
     } else {
-      this.alertController
+      console.log("has fallado")
+      this.presentAlert()
     }
   }
   async presentAlert() {
