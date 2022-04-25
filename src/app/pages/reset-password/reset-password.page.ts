@@ -24,34 +24,5 @@ export class ResetPasswordPage implements OnInit {
 
   resetPassword() {
     this.authService.resetPassword(this.item.correo)
-      // .then(
-      //   () => {
-      //     this.alertSucces();
-      //     this.router.navigateByUrl('/login');
-      //   })
-      // .catch(
-      //   () => this.alertError()
-      // );
   }
-
-  async alertSucces() {
-    const alert = await this.alertController.create({
-      header: 'Recover Password',
-      message: `an email has been sent to the address provided.`,
-      buttons: ['Accept']
-    });
-
-    await alert.present();
-  }
-
-  async alertError() {
-    const alert = await this.alertController.create({
-      header: 'Recover Password',
-      message: `no se ha podido enviar el correo a la dirección proporcionada`,
-      buttons: ['Accept']
-    });
-
-    await alert.present();
-  }
-
 }

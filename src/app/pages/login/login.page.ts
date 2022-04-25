@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,7 +16,7 @@ export class LoginPage implements OnInit {
 
   constructor(private authservice: AuthService,
               private alertController: AlertController,
-              private router: Router) { }
+              private router: Router,) { }
 
   ngOnInit() {
   }
