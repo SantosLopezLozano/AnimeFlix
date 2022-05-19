@@ -1,25 +1,42 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
+import {
+  Firestore, collectionData, deleteDoc, doc, addDoc, collection, docData, setDoc
+} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { Anime } from '../model/items';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
+  pathToItems = `users/${this.auth.getCurrentUser().uid}/items`;
+
   constructor(
-    private storage: AngularFireStorage
-  ) {}
+    private firestore: Firestore,
+    private auth: AuthService
+  ) { }
 
-  // Sube a firebase un archivo y devuelve la url del archivo subido
-  uploadFile(file, path: string, name: string): Promise<string> {
-    const filePath = `${path}/${name}`
-    const storageRef = this.storage.ref(filePath)
-    const task = storageRef.put(file)
+  public async addItem(item: Anime) {
+    await addDoc(collection(this.firestore, this.pathToItems), item);
+  }
 
-    return new Promise((resolve, reject) => {
-      task.snapshotChanges().subscribe({
-        complete: () => storageRef.getDownloadURL().subscribe({next: resolve, error: reject})
-      })
-    })
+  getItems(): Observable<Anime[]> {
+    const collectionRef = collection(this.firestore, this.pathToItems);
+    return collectionData(collectionRef, {idField: 'itemId'}) as Observable<Anime[]>;
+  }
+
+  getItem(id: string): Observable<Anime> {
+    const docRef = doc(this.firestore, `${this.pathToItems}/${id}`);
+    return docData(docRef, { idField: 'itemId' }) as Observable<Anime>;
+  }
+
+  async deleteItem(id: string) {
+    await deleteDoc(doc(this.firestore, `${this.pathToItems}/${id}`));
+  }
+
+  async updateItem(item: Anime) {
+    await setDoc(doc(this.firestore, `${this.pathToItems}/${item.animeId}`), item);
   }
 }

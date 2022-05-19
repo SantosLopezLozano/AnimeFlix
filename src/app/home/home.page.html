@@ -7,4 +7,24 @@
 </ion-header>
 
 <ion-content id="content" [fullscreen]="true">
+  <ion-chip *ngFor="let item of item | async">
+    <ion-avatar>
+      <img [src]="item.imageUrl">
+    </ion-avatar>
+
+    <ion-label class="text capitalize">{{ item.name }} <strong>{{ item.ratings }}</strong></ion-label>
+
+    <span
+      title="Editar elemento"
+      (click)="goEditItem(item.animeId)">
+      <ion-icon name="pencil">
+      </ion-icon>
+    </span>
+
+    <span
+      title="Borrar elemento" (click)="itemService.deleteItem(item.animeId)">
+      <ion-icon name="close-circle">
+      </ion-icon>
+    </span>
+  </ion-chip>
 </ion-content>
