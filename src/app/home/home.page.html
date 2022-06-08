@@ -1,30 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar id="header">
-      <ion-button class="btn" id="recomendaciones" fill="clear" href="/home"> Animes </ion-button>
+      <ion-button class="btn" id="recomendaciones" fill="clear"> Animes </ion-button>
       <ion-button class="btn" id="lista" fill="clear" href="/mylist"> My List </ion-button>
       <ion-button class="btn" id="perfil" fill="clear" href="/profile"> Profile </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="content" [fullscreen]="true">
-  <ion-chip *ngFor="let item of item | async">
-    <ion-avatar>
-      <img [src]="item.imageUrl">
-    </ion-avatar>
-
-    <ion-label class="text capitalize">{{ item.name }} <strong>{{ item.ratings }}</strong></ion-label>
-
-    <span
-      title="Editar elemento"
-      (click)="goEditItem(item.animeId)">
-      <ion-icon name="pencil">
-      </ion-icon>
-    </span>
-
-    <span
-      title="Borrar elemento" (click)="itemService.deleteItem(item.animeId)">
-      <ion-icon name="close-circle">
-      </ion-icon>
-    </span>
-  </ion-chip>
+  {{ items | async | json }}
+  <br>
 </ion-content>

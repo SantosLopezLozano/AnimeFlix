@@ -11,32 +11,15 @@ import { AuthService } from './auth.service';
 })
 export class ItemService {
 
-  pathToItems = `users/${this.auth.getCurrentUser().uid}/items`;
-
-  constructor(
-    private firestore: Firestore,
-    private auth: AuthService
-  ) { }
+  constructor(private firestore: Firestore) { }
 
   public async addItem(item: Anime) {
-    await addDoc(collection(this.firestore, this.pathToItems), item);
+    await addDoc(collection(this.firestore, 'animesPublicos'), item);
   }
 
-  getItems(): Observable<Anime[]> {
-    const collectionRef = collection(this.firestore, this.pathToItems);
-    return collectionData(collectionRef, {idField: 'itemId'}) as Observable<Anime[]>;
-  }
-
-  getItem(id: string): Observable<Anime> {
-    const docRef = doc(this.firestore, `${this.pathToItems}/${id}`);
-    return docData(docRef, { idField: 'itemId' }) as Observable<Anime>;
-  }
-
-  async deleteItem(id: string) {
-    await deleteDoc(doc(this.firestore, `${this.pathToItems}/${id}`));
-  }
-
-  async updateItem(item: Anime) {
-    await setDoc(doc(this.firestore, `${this.pathToItems}/${item.animeId}`), item);
+  public getItems(): Observable<Anime[]> {
+    return collectionData(
+      collection(this.firestore, 'animesPublicos'), { idField: 'animeID' }
+    ) as Observable<Anime[]>;
   }
 }
